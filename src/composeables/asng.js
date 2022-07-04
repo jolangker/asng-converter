@@ -9,20 +9,20 @@ const useASNG = () => {
   };
 
   const toASNG = (txt) => {
-    const reversed = reverseString(txt);
+    const reversed = reverseString(txt.toUpperCase());
     const strArr = reversed.split("");
 
     const idx = strArr.findIndex((str) => {
       return (
-        str.includes("a") ||
-        str.includes("i") ||
-        str.includes("u") ||
-        str.includes("e") ||
-        str.includes("o")
+        str.includes("A") ||
+        str.includes("I") ||
+        str.includes("U") ||
+        str.includes("E") ||
+        str.includes("O")
       );
     });
 
-    strArr[idx] = strArr[idx] + "gnsa";
+    strArr[idx] = strArr[idx] + "GNSA";
 
     return reverseString(strArr.join(""));
   };
@@ -37,7 +37,7 @@ const useASNG = () => {
     return asngArr.join(" ");
   };
 
-  const toNormal = (asng) => asng.replaceAll("asng", "");
+  const toNormal = (asng) => asng.toLowerCase().replaceAll("asng", "").toUpperCase();
 
   return {
     toASNGSentence,
